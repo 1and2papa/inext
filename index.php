@@ -132,7 +132,7 @@ $fontsize = ($_COOKIE['fontsize']) ? ($_COOKIE['fontsize']) : "2";
 	<div class="sosumi">iNext (v<?php echo VERSION?>) by Clement T</div>
 
 	<div class="dtdns">Bookmark new address :
-		<a href="http://php-inext.rhcloud.comchange/">http://php-inext.rhcloud.comchange/</a>
+		<a href="<?php echo SITE . ROOT ?>"><?php echo SITE . ROOT ?></a>
 	</div>
 
 

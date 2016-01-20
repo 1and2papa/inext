@@ -12,6 +12,7 @@ Last Update		: 2016-01-09
 define("VERSION", "3.0");
 define("ALLOWED_UA", "iPhone|iPod|iPad|Android");
 define("MOTTO", "All your page are belong to us");
+define("SITE", "http://php-inext.rhcloud.com");
 define("ROOT", "/");
 define("CACHE", false);
 define("CACHE_TIME", 7200);
