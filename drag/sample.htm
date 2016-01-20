@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>iPhone Events Demo</title>
+	<meta name="viewport" content="width = device-width, user-scalable = no, height = device-height" />
+	<link href="../css/style.css" rel="stylesheet" type="text/css" media="screen" />	
+    <script type="text/javascript">
+        var currentId;
+        var objects = {};
+        var zIndex = 0;
+      
+        function init() {
+            document.addEventListener("touchstart", startmove, false);
+            document.addEventListener("touchmove", move, false);
+            document.addEventListener("touchend", endmove, false);
+            makeObjectMovable(menu);
+        }
+
+        function startmove(event) {
+            var touch = event.touches[0];
+            var id = touch.identifier;
+            currentId = id;
+            if (touch.target.className == "movable") {
+                objects[id] = {
+                    target: touch.target,
+                    beginX: touch.clientX,
+                    beginY: touch.clientY,
+                    pozX: touch.target.pozXinit,
+                    pozY: touch.target.pozYinit
+                }
+                touch.target.style.opacity = 0.5;
+                touch.target.style.zIndex = ++zIndex;
+            }
+            event.preventDefault();
+        }
+
+        function endmove(event) {
+            var touch = event.touches[0];
+            var id = currentId;
+            if (objects[id] != null) {
+                if (objects[id].target.className == "movable") {
+                    objects[id].target.style.opacity = 1;
+                }
+                delete objects[id];
+            }
+            event.preventDefault();
+        }
+
+        function move(event) {
+            var touch = event.touches[0];
+            var id = touch.identifier;
+            if (objects[id].target.className == "movable") {
+                objects[id].target.pozXinit = objects[id].pozX + touch.clientX - objects[id].beginX;
+                //objects[id].target.pozYinit = objects[id].pozY + touch.clientY - objects[id].beginY;
+                objects[id].target.style['-webkit-transform'] = 'translate(' + objects[id].target.pozXinit + 'px,' + objects[id].target.pozYinit + 'px)';
+            }
+            event.preventDefault();
+        }
+
+        function makeObjectMovable(obj) {
+            obj.className = "movable";
+            obj.pozXinit = 0;
+            obj.pozYinit = 0;
+        }
+    </script>
+</head>
+<body onload="init();" style="width:100%; height: 100%;" >
+<div id="drag">
+<ul id="menu">
+<li><a href="proxy.php?next_id=apple&amp;page=sec_main&amp;iss_id=20090520&amp;sec_id=4104&amp;size=small" class="current">&#35201;&#32862;&#28207;&#32862;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=sec_main&amp;iss_id=20090520&amp;sec_id=15335&amp;size=small">&#20841;&#23736;&#22283;&#38555;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=sec_main&amp;iss_id=20090520&amp;sec_id=15307&amp;size=small">&#36001;&#32147;&#22320;&#29986;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=sec_main&amp;iss_id=20090520&amp;sec_id=462&amp;size=small">&#23067;&#27138;&#21517;&#20154;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=sec_main&amp;iss_id=20090520&amp;sec_id=25391&amp;size=small">&#39636;&#32946;</a></li>
+</ul>
+</div>
+<div class="cover">
+<img src="http://hk.apple.nextmedia.com/images/apple-photos/apple/20090520/small/head_4104.jpg" alt="&#34987;&#36924;&#22519;&#21253;&#34993;&#12288;&#20219;&#32317;&#21313;&#8231;&#19968;&#19979;&#21488;"><p>2009-05-20</p>
+</div>
+<ul class="list">
+<li class="group">&#38957;&#26781;</li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778930&amp;size=small">&#34987;&#36924;&#22519;&#21253;&#34993;&#12288;&#20219;&#32317;&#21313;&#8231;&#19968;&#19979;&#21488;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778931&amp;size=small">&#28322;&#32654;&#35328;&#35422;&#32972;&#24460;&#30340;&#20937;&#34180;&#36924;&#23470;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778932&amp;size=small">&#20219;&#24535;&#21083;&#26368;&#25964;&#30031;&#30340;&#20841;&#20491;&#20154;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778944&amp;size=small">&#25850;&#26126;&#23433;&#25554;&#38515;&#24503;&#38678;&#25509;&#20219;&#28207;&#24220;&#25198;&#20445;&#23494;&#12288;&#35696;&#21729;&#36074;&#30097;&#21448;&#25630;&#29992;&#20154;&#21807;&#35242;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778945&amp;size=small">&#37329;&#31649;&#23616;&#24656;&#35722;&#29305;&#39318;&#30340;&#29544;&#31435;&#29579;&#22283;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778946&amp;size=small">&#28040;&#24687;&#29554;&#24066;&#22580;&#20805;&#20221;&#28040;&#21270;&#12288;&#28207;&#28377;&#26410;&#22240;&#20219;&#32317;&#38626;&#32887;&#36681;&#24369;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778958&amp;size=small">&#20841;&#24230;&#21270;&#35299;&#37329;&#34701;&#21361;&#27231;&#12288;&#21151;&#22823;&#36942;&#20063;&#19981;&#23567;&#20219;&#32317;&#29229;&#35696;&#22810;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778959&amp;size=small">&#20219;&#24535;&#21083;38&#24180;&#22823;&#20107;&#35352;&#12288;&#28858;&#28207;&#37329;&#34701;&#21490;&#30041;&#37325;&#35201;&#31456;&#31680;</a></li>
+<li class="group">&#35201;&#32862;</li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778984&amp;size=small">&#22833;&#26989;&#29575;5.3%&#12288;41&#20491;&#26376;&#20358;&#26368;&#39640;&#12288;&#22833;&#26989;&#22823;&#36557;&#30452;&#36924;20&#33836;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778985&amp;size=small">&#19977;&#22823;&#20225;&#26989;&#20659;&#35009;&#21729;&#20849;500&#20154;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778986&amp;size=small">&#29305;&#39318;&#39000;&#28187;&#34218;&#12288;&#34987;&#35413;&#24460;&#30693;&#24460;&#35258;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779280&amp;size=small">&#32654;&#21338;&#24425;&#30435;&#31649;&#23616;&#20419;&#32654;&#39640;&#26757;&#33287;&#20309;&#36229;&#29898;&#26039;&#32879;&#32363;</a></li>
+<li class="group">&#28207;&#32862;</li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778998&amp;size=small">&#33287;&#35948;&#27969;&#24863;&#30149;&#20154;&#25509;&#35320;&#12288;&#23478;&#20013;&#38548;&#38626;&#25239;&#30123;&#12288;&#26368;&#24555;&#26126;&#23526;&#26045;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779000&amp;size=small">&#20116;&#20154;&#22823;&#38442;&#36820;&#28207;&#29694;&#30149;&#24501;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778999&amp;size=small">&#37758;&#21335;&#23665;&#31281;&#30740;&#35069;&#30435;&#23519;&#20736;&#12288;&#21450;&#26089;&#35672;&#21029;&#21897;&#30171;&#30123;&#32773;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779001&amp;size=small">&#37291;&#23616;&#25351;&#23450;&#19971;&#38291;&#27969;&#24863;&#35386;&#25152;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779002&amp;size=small">&#28207;&#22823;&#21487;&#22235;&#23567;&#26178;&#24555;&#36895;&#39511;&#30123;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779003&amp;size=small">&#26053;&#34892;&#31038;&#25512;&#38548;&#38626;&#27941;&#36028;&#30041;&#23458;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779004&amp;size=small">&#26753;&#23637;&#25991;&#30332;&#32882;&#26126;&#22823;&#21453;&#25802;&#12288;&#36973;&#35696;&#21729;&#39361;&#26021;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779025&amp;size=small">&#21555;&#23815;&#27494;&#20316;&#20379;&#65306;06&#24180;&#36986;&#22225;&#19981;&#31526;&#40852;&#22914;&#24515;&#26412;&#24615;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779026&amp;size=small">&#21475;&#20379;&#33287;&#29579;&#27704;&#31077;&#26377;&#22810;&#34389;&#20986;&#20837;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779027&amp;size=small">&#26377;&#25351;02&#36986;&#22225;&#21103;&#26412;&#20132;&#20839;&#22320;&#23448;&#21729;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779041&amp;size=small">&#35686;&#20170;&#27169;&#25836;&#25503;&#37881;&#27700;&#24392;&#12288;&#37325;&#32068;&#26696;&#24773;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779042&amp;size=small">&#31561;&#19981;&#21450;&#23629;&#32954;&#12288;&#34349;&#26690;&#22346;&#20043;&#33457;&#21435;&#19990;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779043&amp;size=small">&#26041;&#33311;&#20844;&#22290;&#19979;&#21608;&#36215;&#38283;&#25918;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779044&amp;size=small">&#20841;&#27454;&#24515;&#33247;&#36215;&#25615;&#22120;&#21487;&#33021;&#22833;&#25928;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779060&amp;size=small">&#23396;&#20818;&#38498;&#35480;&#23014;&#30097;&#26696;&#12288;&#35686;&#23436;&#25104;&#38642;&#21335;&#25628;&#35657;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779061&amp;size=small">&#19981;&#28415;&#20844;&#21496;&#21067;&#25187;&#20154;&#24037;&#21450;&#35299;&#20721;&#19977;&#20154;&#12288;&#33909;&#30427;&#35199;&#36926;10&#32160;&#24052;&#21496;&#27231;&#32631;&#39387;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779062&amp;size=small">&#22235;&#23416;&#29983;&#26657;&#20839;&#25171;&#26550;&#34987;&#25429;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779063&amp;size=small">&#20845;&#21512;&#24425;&#38957;&#29518;&#19968;&#27880;&#20013;&#27966;3233&#33836;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779116&amp;size=small">&#28771;&#20180;&#34903;&#24066;&#24093;&#22283;&#22823;&#24264;&#24335;&#32080;&#27083;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779117&amp;size=small">&#22533;&#23612;&#22320;&#22478;&#24314;&#35997;&#27580;&#27891;&#27744;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779118&amp;size=small">&#25237;&#35380;&#23130;&#23035;&#30435;&#31150;&#20154;&#19977;&#24180;&#20843;&#23447;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779119&amp;size=small">13&#31278;&#21475;&#33108;&#28528;&#30221;&#34277;&#33167;&#21547;&#33740;
+</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779134&amp;size=small">&#26106;&#35282;&#27833;&#40635;&#22320;16&#23447;&#22256;&#60628;&#27714;&#21161;&#12288;&#20572;&#38651;&#20116;&#20998;&#37912;&#29609;&#27544;&#28040;&#38450;&#21729;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779135&amp;size=small">&#26612;&#28771;&#22707;&#22580;&#25304;&#19977;&#36215;&#22707;&#40657;&#24037;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779136&amp;size=small">&#37257;&#28450;&#30332;&#37202;&#30322;&#20844;&#36335;&#20166;&#20663;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779137&amp;size=small">13&#31169;&#26783;&#26820;200&#33836;&#36008;&#36867;&#33067;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779138&amp;size=small">&#22533;&#36947;&#25286;&#33290;&#27155;&#39514;&#29694;&#25163;&#27085;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779153&amp;size=small">&#12298;&#25991;&#21295;&#22577;&#12299;&#31038;&#35542;&#38283;&#22825;&#31383;&#12288;&#31243;&#32724;&#32202;&#35352;&#29992;&#31558;&#39717;&#29229;
+</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779154&amp;size=small">&#12298;&#25991;&#21295;&#22577;&#12299;&#31038;&#35542;&#38283;&#22825;&#31383;&#12288;&#22827;&#23376;&#25014;&#36848;&#20841;&#20491;&#26041;&#26696;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779155&amp;size=small">&#20843;&#34399;&#39080;&#29699;&#19979;&#30340;&#33760;&#34367;&#21253;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779156&amp;size=small">&#21521;&#27611;&#20687;&#25503;&#38622;&#34507;&#19977;&#20154;&#37325;&#36898;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779157&amp;size=small">&#26368;&#24460;&#19968;&#21517;&#34987;&#21028;&#21009;&#32773;&#29554;&#37323;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779158&amp;size=small">&#22806;&#20132;&#37096;&#20197;&#32147;&#28639;&#36681;&#31227;&#35222;&#32218;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779159&amp;size=small">&#34987;&#36670;&#26039;&#33151;&#23416;&#29983;&#25014;&#36848;&#32147;&#27511;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779160&amp;size=small">20&#24180;&#21069;&#30340;&#20170;&#22825;&#12288;&#21271;&#20140;&#25106;&#22196;&#12288;&#27665;&#30526;&#20197;&#36523;&#22581;&#25130;&#36557;&#36554;</a></li>
+<li class="group">&#27861;&#24237;</li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779096&amp;size=small">&#28216;&#34521;&#27891;&#25475;&#33216;&#33151;&#12288;&#20013;&#24180;&#28450;&#28041;&#27891;&#27744;&#38706;&#26800;&#38750;&#31150;&#20845;&#22899;&#31461;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779097&amp;size=small">&#20841;&#25216;&#24037;&#33287;13&#27506;&#37257;&#23043;&#24615;&#20132;&#20505;&#25074;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779098&amp;size=small">&#27665;&#38291;&#38651;&#21488;&#19978;&#35380;&#32066;&#38498;&#39361;&#22238;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779099&amp;size=small">&#24118;&#20841;&#23376;&#20599;&#27169;&#22411;&#36042;&#29240;&#37325;&#21028;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779100&amp;size=small">&#38651;&#24037;&#23014;&#35242;&#25114;&#24188;&#22899;&#22234;&#20843;&#24180;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779101&amp;size=small">&#25886;&#32156;&#25588;&#34987;&#25298;&#23521;&#23142;&#25552;&#35206;&#26680;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779102&amp;size=small">&#38738;&#24180;&#22294;&#31001;&#21496;&#27861;&#20837;&#29508;&#21322;&#24180;</a></li>
+<li class="group">&#20581;&#24247;&#33287;&#37291;&#30274;</li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779077&amp;size=small">&#20818;&#31461;&#24739;&#19968;&#22411;&#31958;&#23615;&#12288;&#39135;&#26997;&#21780;&#32933;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779078&amp;size=small">&#32954;&#30278;&#30149;&#20154;&#26381;&#25239;&#29983;&#32032;&#25110;&#33268;&#33145;&#28681;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779079&amp;size=small">&#32160;&#33590;&#35069;&#38512;&#36947;&#21867;&#21937;&#38450;&#24859;&#28363;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779080&amp;size=small">&#22522;&#23380;&#32943;&#38597;&#29105;&#30149;&#20363;&#19971;&#21315;&#23447;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779081&amp;size=small">&#28204;&#35430;80&#31945;&#27171;&#26412;&#20840;&#37096;&#21512;&#26684;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779082&amp;size=small">&#30284;&#33131;&#30244;&#37323;&#29289;&#36074;&#24341;&#30332;&#25233;&#39729;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779083&amp;size=small">&#30382;&#33178;&#23039;&#33394;&#65306;&#20098;&#28858;&#23344;&#20818;&#35703;&#33178;&#26131;&#25935;&#24863;</a></li>
+<li class="group">&#34315;&#26524;&#26262;&#27969;</li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12777798&amp;size=small">&#30284;&#28450;&#29554;&#34277;&#36027;&#33287;&#27544;&#30142;&#22971;&#35613;&#21892;&#38263;</a></li>
+<li class="group">&#23560;&#27396;&#23560;&#35542;</li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779005&amp;size=small">&#34315;&#35542;&#65306;&#20219;&#32317;&#19968;&#21435;&#12288;&#22823;&#27193;&#39108;&#38646;..(&#30439;&#23791;)</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779187&amp;size=small">&#27743;&#28246;&#28414;&#29105;&#36771;..(&#23562;&#23376;)</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779188&amp;size=small">&#38548;&#29254;&#26377;&#32819;&#65306;&#28187;&#24471;&#36215;&#12288;&#25918;&#19981;&#20302;..(&#26446;&#20843;&#26041;)</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779189&amp;size=small">&#38548;&#29254;&#26377;&#32819;&#65306;&#24037;&#26371;&#36870;&#24066;&#21152;&#26371;&#36027;..(&#26446;&#20843;&#26041;)</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779190&amp;size=small">&#38548;&#29254;&#26377;&#32819;&#65306;&#36942;&#27683;&#28207;&#22992;&#20570;&#31354;&#22992;..(&#26446;&#20843;&#26041;)</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779191&amp;size=small">&#38548;&#29254;&#26377;&#32819;&#65306;&#26446;&#28580;&#26999;&#19968;&#23450;&#25171;&#21040;&#24213;..(&#26446;&#20843;&#26041;)</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779192&amp;size=small">&#25919;&#22727;&#20843;&#36948;&#36890;&#65306;&#23553;&#32173;&#26223;&#24800;&#21450;&#22810;&#20491;&#37096;&#38272;..(&#21934;&#20161;)</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779193&amp;size=small">&#20843;&#26041;&#20154;&#29289;&#65306;&#19978;&#28023;&#30340;&#20961;&#29246;&#36093;&#23470;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12779194&amp;size=small">&#34315;&#26524;&#26371;&#23458;&#23460;</a></li>
+<li class="group">&#35542;&#22727;</li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778549&amp;size=small">&#25506;&#37341;&#65306;&#26114;&#23665;&#32032;&#23020;&#9472;&#9472;&#21487;&#25964;&#30340;&#12300;&#22283;&#23478;&#22234;&#24466;&#12301;..(&#30439;&#23791;)</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778550&amp;size=small">&#39640;&#23448;&#22240;&#20309;&#20502;&#20813;&#65311;..(&#22196;&#27387;)</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778551&amp;size=small">&#22475;&#27794;&#33391;&#24515;&#26159;&#31649;&#27835;&#31934;&#33521;&#30340;&#26680;&#24515;&#20729;&#20540;..(&#21555;&#24535;&#26862;)</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778552&amp;size=small">&#34315;&#26524;&#35542;&#22727;&#28459;&#30059;..(&#39340;&#40845;)</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12778553&amp;size=small">&#27489;&#36814;&#25237;&#31295;</a></li>
+<li class="group">&#26381;&#21209;</li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12777795&amp;size=small">&#20056;&#23458;&#25237;&#35380;&#28207;&#40845;&#36229;&#36067;&#27231;&#20301;&#12288;&#35330;&#22909;&#27231;&#31080;&#33256;&#39131;&#25165;&#30693;&#28961;&#20301;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12777796&amp;size=small">&#22823;&#24264;&#28779;&#29275;&#25151;&#34987;&#25797;&#25913;&#20316;&#21830;&#33302;</a></li>
+<li><a href="proxy.php?next_id=apple&amp;page=art_main&amp;iss_id=20090520&amp;sec_id=4104&amp;art_id=12777797&amp;size=small">&#20445;&#38570;&#26377;&#36947;&#65306;&#32856;&#26257;&#26399;&#24037;&#20063;&#38656;&#36092;&#21214;&#20445;</a></li>
+</ul>
+<div class="sosumi">iNext by Clement T</div>>
+</body>
+</html>

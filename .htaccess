@@ -1,0 +1,10 @@
+RewriteEngine on
+RewriteBase /
+# check that the request url is neither a file nor a directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^css/settings/?$ settings.php [NC,L]
+RewriteRule ^([a-z]+)/?$ proxy.php?next_id=$1 [NC,L]
+RewriteRule ^([a-z]+)/([a-z0-9]+)/?$ proxy.php?next_id=$1&sec_id=$2 [NC,L]
+RewriteRule ^([a-z]+)/([a-z]+)/([0-9]+)/?$ proxy.php?next_id=$1&sec_id=$2&iss_id=$3 [NC,L]
+RewriteRule ^([a-z]+)/([a-z]+)/([a-z]+)/([0-9]+)/([0-9]+)/?$ proxy.php?next_id=$1&sec_id=$2&page=$3&iss_id=$4&art_id=$5 [NC,L]
