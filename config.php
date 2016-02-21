@@ -4,15 +4,13 @@ Description		: NextProxy Configuration
 Source			: http://hk.nextmedia.com/
 Content Owner	: nextmedia.com
 Developer		: Clement T (http://chiunam.net)
-Version			: 2.0.0
-Create Date		: 2009-05-19
-Last Update		: 2016-01-09
 */
 
-define("VERSION", "3.0");
+define("VERSION", "3.0.1");
 define("ALLOWED_UA", "iPhone|iPod|iPad|Android");
 define("MOTTO", "All your page are belong to us");
 define("SITE", "http://php-inext.rhcloud.com");
+define("COOKIES_LIFE", time()+60*60*24*30);
 define("ROOT", "/");
 define("CACHE", false);
 define("CACHE_TIME", 7200);

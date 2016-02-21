@@ -4,9 +4,6 @@ Description		: iNext
 Source			: http://hk.nextmedia.com/
 Content Owner	: nextmedia.com
 Developer		: Clement T (http://chiunam.net)
-Version			: 2.0.0
-Create Date		: 2009-05-19
-Last Update		: 2016-01-09
 */
 
 
@@ -17,11 +14,11 @@ require('header.php');
 if ($_POST['settingSubmit']==true)
 {
 	//save font size
-	setcookie("fontsize", $_POST['fontsize'], time()+60*60*24*30, ROOT);
-	setcookie("last-modified", time(), time()+60*60*24*30, ROOT);
+	setcookie("fontsize", $_POST['fontsize'], COOKIES_LIFE, ROOT);
+	setcookie("last-modified", time(), COOKIES_LIFE, ROOT);
 
 	if ($_POST['cache'] == on) {
-		setcookie("cache-since", time(), time()+60*60*24*30, ROOT);
+		setcookie("cache-since", time(), COOKIES_LIFE, ROOT);
 	}
 	header("Location: .");
 }
@@ -29,8 +26,8 @@ if ($_POST['settingSubmit']==true)
 //Init cookies
 if (!$_COOKIE['fontsize'])
 {
-	setcookie("fontsize", "2", time()+60*60*24*30, ROOT);
-	setcookie("last-modified", time(), time()+60*60*24*30, ROOT);
+	setcookie("fontsize", "2", COOKIES_LIFE, ROOT);
+	setcookie("last-modified", time(), COOKIES_LIFE, ROOT);
 }
 
 $fontsize = ($_COOKIE['fontsize']) ? ($_COOKIE['fontsize']) : "2";

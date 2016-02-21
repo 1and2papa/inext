@@ -4,9 +4,6 @@ Description		: ImageProxy
 Source			: http://hk.nextmedia.com/
 Content Owner	: nextmedia.com
 Developer		: Clement T (http://chiunam.net)
-Version			: 2.0.0
-Create Date		: 2010-06-23
-Last Update		: 2012-05-11
 */
 
 //Initiate parameters

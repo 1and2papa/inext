@@ -4,9 +4,6 @@ Description		: NextProxy
 Source			: http://hk.nextmedia.com/
 Content Owner	: nextmedia.com
 Developer		: Clement T (http://chiunam.net)
-Version			: 2.0.0
-Create Date		: 2009-05-19
-Last Update		: 2012-05-11
 */
 
 //phpQUery for prasing DOM

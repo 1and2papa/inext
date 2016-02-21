@@ -4,16 +4,16 @@ Description		: iNext Setting Stylesheet
 Source			: http://hk.nextmedia.com/
 Content Owner	: nextmedia.com
 Developer		: Clement T (http://chiunam.net)
-Version			: 2.0.0
-Create Date		: 2009-05-19
-Last Update		: 2012-05-11
 */
 
 require('config.php');
 date_default_timezone_set('Asia/Hong_Kong');
 
-$fontsize		= ($_COOKIE['fontsize']) ? ($_COOKIE['fontsize']) : "2";
+$fontsize	= ($_COOKIE['fontsize']) ? ($_COOKIE['fontsize']) : "2";
 $lastmodified	= ($_COOKIE['last-modified']) ? ($_COOKIE['last-modified']) : time();
+
+setcookie("fontsize", $fontsize, COOKIES_LIFE, ROOT);
+setcookie("last-modified", $lastmodified, COOKIES_LIFE, ROOT);
 
 if ($lastmodified <= strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
 	header("HTTP/1.0 304 Not Modified");
@@ -27,7 +27,7 @@ header("Cache-Control: no-cache, must-revalidate");
 ?>
 
 /*
-header:			<?php echo strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE'])?>
+header:		<?php echo strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE'])?>
 
 last-modified: 	<?php echo $lastmodified?>
 */

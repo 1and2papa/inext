@@ -4,9 +4,6 @@ Description		: NextProxy functions
 Source			: http://hk.nextmedia.com/
 Content Owner	: nextmedia.com
 Developer		: Clement T (http://chiunam.net)
-Version			: 2.0.0
-Create Date		: 2009-05-19
-Last Update		: 2016-01-09
 */
 
 
@@ -81,7 +78,7 @@ function apple_index($req, $param)
 	//Append reload to invalid cache manifest
 	if (stripos($_SERVER["REQUEST_URI"], '?reload'))
 	{
-		setcookie("reset-cache", 'YES', time()+60*60*24*30, ROOT);			
+		setcookie("reset-cache", 'YES', COOKIES_LIFE, ROOT);			
 		header("Location: " . str_replace('?reload', '', $_SERVER["REQUEST_URI"]));		
 	}	
 	
@@ -185,7 +182,7 @@ function applesub_index($req, $param)
 	//Append reload to invalid cache manifest
 	if (stripos($_SERVER["REQUEST_URI"], '?reload'))
 	{
-		setcookie("reset-cache", 'YES', time()+60*60*24*30, ROOT);			
+		setcookie("reset-cache", 'YES', COOKIES_LIFE, ROOT);			
 		header("Location: " . str_replace('?reload', '', $_SERVER["REQUEST_URI"]));			
 	}	
 	
@@ -297,7 +294,7 @@ function apple_art($req, $param)
 	//Append reload to invalid cache manifest
 	if (stripos($_SERVER["REQUEST_URI"], '?reload'))
 	{
-		setcookie("reset-cache", 'YES', time()+60*60*24*30, ROOT);			
+		setcookie("reset-cache", 'YES', COOKIES_LIFE, ROOT);			
 		header("Location: " . str_replace('?reload', '', $_SERVER["REQUEST_URI"]));		
 	}	
 	

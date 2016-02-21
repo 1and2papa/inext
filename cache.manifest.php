@@ -4,9 +4,6 @@ Description		: iNext Setting Stylesheet
 Source			: http://hk.nextmedia.com/
 Content Owner	: nextmedia.com
 Developer		: Clement T (http://chiunam.net)
-Version			: 2.0.0
-Create Date		: 2012-06-10
-Last Update		: 2012-06-10
 */
 
 require('config.php');
