@@ -2,7 +2,7 @@
 /*
 Description		: NextProxy functions
 Source			: http://hk.nextmedia.com/
-Content Owner	: nextmedia.com
+Content Owner		: nextmedia.com
 Developer		: Clement T (http://chiunam.net)
 */
 
@@ -280,7 +280,6 @@ function apple_first($req, $param)
 {
 	return apple_art($req, $param);
 }
-
 //Apple Daily Supplement article
 function applesub_art($req, $param)
 {
@@ -481,7 +480,6 @@ function apple_art($req, $param)
 	//Back To Main
 	if (!$param['realtime']) $iss_id = $param['iss_id'].'/';
 	$btm = '<p id="btm"><a class="back" href="'.ROOT.$param['next_id'].'/'.$param['sec_id'].'/'.$iss_id.'">&#171; 返回</a></p>';
-	//$btm = '<p id="btm"><a id="back" href="javascript:;">&#171; 返回</a></p>';
 
 	//Orignial Link
 	$ori = '<p id="original"><a id="url" href="' . $param['url'] . '" target="_blank">瀏覽網頁版 &#187;</a></p>';
@@ -575,10 +573,12 @@ function share ()
 function proxyLink ($nextLink, $param)
 {
 	$nextLink = str_replace("http://", "", $nextLink);
+	$nextLink = str_replace("s.nextmedia.com", "", $nextLink);
 	$nextLink = str_replace($param['host'], "", $nextLink);	
 	$nextLink = str_replace("supplement/", "", $nextLink);	
+	$nextLink = preg_replace('/\/apple\/a\.php\?i=([0-9]+)&sec_id=[0-9]+&s=0&a=([0-9]+)/', '/news/art/$1/$2', $nextLink);
 	$nextLink = preg_replace('/\/columnist\/[^\/]+\/art\//', '/columnist/art/', $nextLink);	
-	$nextLink = preg_replace('/\/realtime\/[a-z]+\//', '/'. $param['sec_id'].'/realtime/', $nextLink);
+	$nextLink = preg_replace('/\/realtime\/[a-z]+\//', '/'.$param['sec_id'].'/realtime/', $nextLink);
 	$nextLink = str_replace("enews/realtime/", $param['sec_id']."/realtime/", $nextLink);	
 	$nextLink = ROOT . $param['next_id'] . $nextLink;
 	

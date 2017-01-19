@@ -2,11 +2,11 @@
 /*
 Description		: NextProxy Configuration
 Source			: http://hk.nextmedia.com/
-Content Owner	: nextmedia.com
+Content Owner		: nextmedia.com
 Developer		: Clement T (http://chiunam.net)
 */
 
-define("VERSION", "3.0.1");
+define("VERSION", "3.0.2");
 define("ALLOWED_UA", "iPhone|iPod|iPad|Android");
 define("MOTTO", "All your page are belong to us");
 define("SITE", "http://php-inext.rhcloud.com");
@@ -36,9 +36,9 @@ $nextproxy = array(
 			"top"			=> "最hit",
 			"news"			=> "要聞",
 			"finance"		=> "財經",
-			"entertainment"	=> "娛樂",
+			"entertainment"		=> "娛樂",
 			"china"			=> "兩岸",
-			"international"	=> "國際",
+			"international"		=> "國際",
 			"sports"		=> "體育",
 			"videonews"		=> "影片"
 		),
@@ -51,11 +51,11 @@ $nextproxy = array(
 		"name" => "蘋果日報",
 		"host" => "hk.apple.nextmedia.com",
 		"section" => array(
-			"news"			=> "要聞港聞",
+			"news"		=> "要聞港聞",
 			"international"	=> "兩岸國際",
 			"financeestate"	=> "財經地產",
 			"entertainment"	=> "娛樂",
-			"sports"		=> "體育"
+			"sports"	=> "體育"
 		),
 		"url" => array(
 			"index" => "http://%host%/%sec_id%/index/%iss_id%/",
