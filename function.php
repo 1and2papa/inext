@@ -2,7 +2,7 @@
 /*
 Description		: NextProxy functions
 Source			: http://hk.nextmedia.com/
-Content Owner		: nextmedia.com
+Content Owner	: nextmedia.com
 Developer		: Clement T (http://chiunam.net)
 */
 
@@ -577,6 +577,7 @@ function proxyLink ($nextLink, $param)
 	$nextLink = str_replace($param['host'], "", $nextLink);	
 	$nextLink = str_replace("supplement/", "", $nextLink);	
 	$nextLink = preg_replace('/\/apple\/a\.php\?i=([0-9]+)&sec_id=[0-9]+&s=0&a=([0-9]+)/', '/news/art/$1/$2', $nextLink);
+	$nextLink = preg_replace('/\/realtime\/a\.php\?i=([0-9]+)&s=[0-9]+&a=([0-9]+)/', '/all/realtime/$1/$2', $nextLink);
 	$nextLink = preg_replace('/\/columnist\/[^\/]+\/art\//', '/columnist/art/', $nextLink);	
 	$nextLink = preg_replace('/\/realtime\/[a-z]+\//', '/'.$param['sec_id'].'/realtime/', $nextLink);
 	$nextLink = str_replace("enews/realtime/", $param['sec_id']."/realtime/", $nextLink);	

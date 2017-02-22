@@ -6,7 +6,7 @@ Content Owner		: nextmedia.com
 Developer		: Clement T (http://chiunam.net)
 */
 
-define("VERSION", "3.0.2");
+define("VERSION", "3.0.3");
 define("ALLOWED_UA", "iPhone|iPod|iPad|Android");
 define("MOTTO", "All your page are belong to us");
 define("SITE", "http://php-inext.rhcloud.com");
