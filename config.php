@@ -1,15 +1,15 @@
 <?php
 /*
 Description		: NextProxy Configuration
-Source			: http://hk.nextmedia.com/
-Content Owner		: nextmedia.com
-Developer		: Clement T (https://github.com/chiunam)
+Source        : http://hk.nextmedia.com/
+Content Owner	: nextmedia.com
+Developer     : Clement T (https://github.com/chiunam)
 */
 
-define("VERSION", "3.0.3");
+define("VERSION", "3.0.4");
 define("ALLOWED_UA", "iPhone|iPod|iPad|Android");
 define("MOTTO", "All your page are belong to us");
-define("SITE", "http://php-inext.rhcloud.com");
+define("SITE", $_SERVER["HTTP_X_FORWARDED_PROTO"]."://".$_SERVER['SERVER_NAME']);
 define("COOKIES_LIFE", time()+60*60*24*30);
 define("ROOT", "/");
 define("CACHE", false);

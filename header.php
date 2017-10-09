@@ -1,9 +1,9 @@
 <?php
 /*
 Description		: iNext auth
-Source			: http://hk.nextmedia.com/
+Source        : http://hk.nextmedia.com/
 Content Owner	: nextmedia.com
-Developer		: Clement T (https://github.com/chiunam)
+Developer     : Clement T (https://github.com/chiunam)
 */
 
 
