@@ -3,7 +3,7 @@
 Description		: NextProxy functions
 Source			: http://hk.nextmedia.com/
 Content Owner	: nextmedia.com
-Developer		: Clement T (http://chiunam.net)
+Developer		: Clement T (https://github.com/chiunam)
 */
 
 

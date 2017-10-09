@@ -1,9 +1,9 @@
-<?
+<?php
 /*
-Description		: iNext Setting Stylesheet
-Source			: http://hk.nextmedia.com/
+Description   : iNext Setting Stylesheet
+Source        : http://hk.nextmedia.com/
 Content Owner	: nextmedia.com
-Developer		: Clement T (http://chiunam.net)
+Developer     : Clement T (https://github.com/chiunam)
 */
 
 require('config.php');
@@ -17,11 +17,11 @@ setcookie("last-modified", $lastmodified, COOKIES_LIFE, ROOT);
 
 if ($lastmodified <= strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
 	header("HTTP/1.0 304 Not Modified");
-	exit;	
+	exit;
 }
 
 header("Content-type: text/css");
-header("Last-Modified: " . gmdate('D, d M Y H:i:s', $lastmodified) . " GMT");	
+header("Last-Modified: " . gmdate('D, d M Y H:i:s', $lastmodified) . " GMT");
 header("Cache-Control: no-cache, must-revalidate");
 
 ?>

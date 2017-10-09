@@ -1,9 +1,9 @@
-<?
+<?php
 /*
-Description		: iNext Setting Stylesheet
-Source			: http://hk.nextmedia.com/
+Description   : NextProxy Cache Manifest
+Source        : http://hk.nextmedia.com/
 Content Owner	: nextmedia.com
-Developer		: Clement T (http://chiunam.net)
+Developer     : Clement T (https://github.com/chiunam)
 */
 
 require('config.php');
@@ -13,10 +13,10 @@ header("Content-type: text/cache-manifest");
 if ($_COOKIE['reset-cache'])
 {
 	// Clear cookie
-	setcookie("reset-cache", "", time()-60*60*24*30, ROOT);	
+	setcookie("reset-cache", "", time()-60*60*24*30, ROOT);
 
 	// Invalid cache manifest
-	header("HTTP/1.0 404 Not Found");	
+	header("HTTP/1.0 404 Not Found");
 	die('HTTP/1.0 404 Not Found');
 }
 else
@@ -52,8 +52,7 @@ images/email.png
 images/facebook.png
 images/twitter.png
 
-<? } ?>
+<?php } ?>
 
 NETWORK:
 *
-
