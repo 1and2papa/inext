@@ -1,8 +1,8 @@
 <?php
 /*
-Description		: ImageProxy
+Description   : ImageProxy
 Source        : http://hk.nextmedia.com/
-Content Owner	: nextmedia.com
+Content Owner : nextmedia.com
 Developer     : Clement T (https://github.com/chiunam)
 */
 

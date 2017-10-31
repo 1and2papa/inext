@@ -2,7 +2,7 @@
 /*
 Description   : NextProxy Cache Manifest
 Source        : http://hk.nextmedia.com/
-Content Owner	: nextmedia.com
+Content Owner : nextmedia.com
 Developer     : Clement T (https://github.com/chiunam)
 */
 
@@ -12,17 +12,17 @@ header("Content-type: text/cache-manifest");
 
 if ($_COOKIE['reset-cache'])
 {
-	// Clear cookie
-	setcookie("reset-cache", "", time()-60*60*24*30, ROOT);
+    // Clear cookie
+    setcookie("reset-cache", "", time()-60*60*24*30, ROOT);
 
-	// Invalid cache manifest
-	header("HTTP/1.0 404 Not Found");
-	die('HTTP/1.0 404 Not Found');
+    // Invalid cache manifest
+    header("HTTP/1.0 404 Not Found");
+    die('HTTP/1.0 404 Not Found');
 }
 else
 {
-	header("Cache-Control: no-cache, must-revalidate");
-	header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+    header("Cache-Control: no-cache, must-revalidate");
+    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 }
 ?>
 CACHE MANIFEST

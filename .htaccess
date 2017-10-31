@@ -1,10 +1,26 @@
 RewriteEngine on
 RewriteBase /
-# check that the request url is neither a file nor a directory
+# Check that the request url is neither a file nor a directory
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+
+# CSS Settings
 RewriteRule ^css/settings/?$ settings.php [NC,L]
+
+# Root
 RewriteRule ^([a-z]+)/?$ proxy.php?next_id=$1 [NC,L]
+
+# Next ID Root
 RewriteRule ^([a-z]+)/([a-z0-9]+)/?$ proxy.php?next_id=$1&sec_id=$2 [NC,L]
+
+# Section Daily Front Page
 RewriteRule ^([a-z]+)/([a-z]+)/([0-9]+)/?$ proxy.php?next_id=$1&sec_id=$2&iss_id=$3 [NC,L]
-RewriteRule ^([a-z]+)/([a-z]+)/([a-z]+)/([0-9]+)/([0-9]+)/?$ proxy.php?next_id=$1&sec_id=$2&page=$3&iss_id=$4&art_id=$5 [NC,L]
+
+# Realtime Article
+RewriteRule ^[a-z]+/(realtime)/(article)/([0-9]+)/([0-9]+)/?$ proxy.php?next_id=$1&page=$2&iss_id=$3&art_id=$4 [NC,L]
+
+# Daily / Magazine Article
+RewriteRule ^([a-z]+)/([a-z]+)/([a-z]+)/([0-9]+)/([0-9_]+)/?$ proxy.php?next_id=$2&sec_id=$1&page=$3&iss_id=$4&art_id=$5 [NC,L]
+
+# Lifestyle Article
+RewriteRule ^([a-z]+)/([a-z]+)/daily/([a-z]+)/([0-9]+)/([0-9]+)/?$ proxy.php?next_id=$1&sec_id=$2&page=$3&iss_id=$4&art_id=$5 [NC,L]
